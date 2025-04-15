@@ -1,5 +1,6 @@
 import './globals.css'
 import ClientProvider from './ClientProvider'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Real Estate Investor Site',
@@ -32,10 +33,10 @@ function Header() {
       <div className="container mx-auto p-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold">RE Investor</h1>
         <nav className="space-x-4">
-        <a href="/" className="hover:underline cursor-pointer">Home</a>
-        <a href="/news" className="hover:underline cursor-pointer">News</a>
-        <a href="/map" className="hover:underline cursor-pointer">Map</a>
-        <a href="/login" className="hover:underline cursor-pointer">Login</a>
+          <Link href="/" className="hover:underline cursor-pointer">Home</Link>
+          <Link href="/news" className="hover:underline cursor-pointer">News</Link>
+          <Link href="/map" className="hover:underline cursor-pointer">Map</Link>
+          <Link href="/login" className="hover:underline cursor-pointer">Login</Link>
         </nav>
       </div>
     </header>

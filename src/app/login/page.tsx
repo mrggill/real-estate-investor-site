@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -37,8 +38,8 @@ export default function LoginPage() {
     }
   };
 
-  const socialSignIn = async (provider: string) => {
-    await supabase.auth.signInWithOAuth({ provider: provider as any });
+  const socialSignIn = async (provider: 'google' | 'facebook' | 'apple') => {
+    await supabase.auth.signInWithOAuth({ provider });
   };
 
   return (
@@ -106,13 +107,13 @@ export default function LoginPage() {
         <div className="flex items-center justify-center space-x-4 pt-4">
           <span className="text-gray-500">Or continue with</span>
           <button type="button" onClick={() => socialSignIn('google')}>
-            <img src="/google-icon.svg" alt="Google" className="h-6 w-6 cursor-pointer" />
+            <Image src="/google-icon.svg" alt="Google" width={24} height={24} />
           </button>
           <button type="button" onClick={() => socialSignIn('facebook')}>
-            <img src="/facebook-icon.svg" alt="Facebook" className="h-6 w-6 cursor-pointer" />
+            <Image src="/facebook-icon.svg" alt="Facebook" width={24} height={24} />
           </button>
           <button type="button" onClick={() => socialSignIn('apple')}>
-            <img src="/apple-icon.svg" alt="Apple" className="h-6 w-6 cursor-pointer" />
+            <Image src="/apple-icon.svg" alt="Apple" width={24} height={24} />
           </button>
         </div>
 

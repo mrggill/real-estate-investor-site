@@ -11,7 +11,7 @@ export default function DataDeletionPage() {
             <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>
           </p>
           <p className="text-gray-600">
-            Use the subject line <strong>"Data Deletion Request"</strong> and we will
+            Use the subject line <strong>&quot;Data Deletion Request&quot;</strong> and we will
             process your request within 7 business days.
           </p>
         </div>
