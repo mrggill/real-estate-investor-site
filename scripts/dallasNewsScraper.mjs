@@ -16,19 +16,18 @@ const scrapeDallasNews = async () => {
 
   const articles = [];
 
-  // find each news item by ID pattern
   $('a[id^="alertTitle_"]').each((i, el) => {
     const headline = $(el).text().trim();
     const relativeLink = $(el).attr('href');
     const link = `https://www.dallasecodev.org${relativeLink}`;
-    const parent = $(el).closest('.item, .catAgendaItem'); // fallback for structure variation
+    const parent = $(el).closest('.item, .catAgendaItem');
     const dateText = parent.find('.date').text().trim().replace('Posted on: ', '');
     const parsedDate = new Date(dateText);
 
     console.log(`Scraping: "${headline}" - Raw date: "${dateText}"`);
 
     if (!headline || isNaN(parsedDate)) {
-      console.warn(`Skipping article: "${headline}" - Invalid title or date.`);
+      console.warn(`⚠️ Skipping article: "${headline}" - Invalid title or date.`);
       return;
     }
 
@@ -44,16 +43,16 @@ const scrapeDallasNews = async () => {
   for (const article of articles) {
     const { error, data, status } = await supabase
       .from('news_articles')
-      .insert([article]);
+      .upsert(article, { onConflict: ['url'] });
 
     if (error) {
-      console.error('Insert error:', error.message || error, 'Article:', article);
+      console.error('❌ Insert error:', error.message || error, 'Details:', error.details || '-', 'Article:', article);
     } else {
-      console.log(`✅ Inserted: ${article.title}`);
+      console.log(`✅ Inserted/Updated: ${article.title}`);
     }
   }
 
-  console.log(`Finished scraping ${articles.length} articles.`);
+  console.log(`🎉 Finished processing ${articles.length} articles.`);
 };
 
 scrapeDallasNews();
