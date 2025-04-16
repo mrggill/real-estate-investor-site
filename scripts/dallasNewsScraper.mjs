@@ -16,19 +16,19 @@ const scrapeDallasNews = async () => {
 
   const articles = [];
 
-  $('.item').each((i, el) => {
-    const anchor = $(el).find('a[id^="alertTitle_"]');
-    const headline = anchor.text().trim();
-    const link = 'https://www.dallasecodev.org' + anchor.attr('href');
+  // find each news item by ID pattern
+  $('a[id^="alertTitle_"]').each((i, el) => {
+    const headline = $(el).text().trim();
+    const relativeLink = $(el).attr('href');
+    const link = `https://www.dallasecodev.org${relativeLink}`;
+    const parent = $(el).closest('.item, .catAgendaItem'); // fallback for structure variation
+    const dateText = parent.find('.date').text().trim().replace('Posted on: ', '');
+    const parsedDate = new Date(dateText);
 
-    const rawDate = $(el).find('.date').text().trim();
-    const cleanDate = rawDate.replace('Posted on:', '').split('|')[0].trim();
-    const parsedDate = new Date(cleanDate);
-
-    console.log(`Scraping: "${headline}" - Raw date: "${cleanDate}"`);
+    console.log(`Scraping: "${headline}" - Raw date: "${dateText}"`);
 
     if (!headline || isNaN(parsedDate)) {
-      console.warn(`Invalid article - skipping. Headline: "${headline}"`);
+      console.warn(`Skipping article: "${headline}" - Invalid title or date.`);
       return;
     }
 
@@ -42,14 +42,18 @@ const scrapeDallasNews = async () => {
   });
 
   for (const article of articles) {
-    const { error } = await supabase.from('news_articles').insert([article]);
+    const { error, data, status } = await supabase
+      .from('news_articles')
+      .insert([article]);
 
     if (error) {
-      console.error('Insert error:', JSON.stringify(error, null, 2));
+      console.error('Insert error:', error.message || error, 'Article:', article);
     } else {
-      console.log('Inserted:', article.title);
+      console.log(`✅ Inserted: ${article.title}`);
     }
   }
+
+  console.log(`Finished scraping ${articles.length} articles.`);
 };
 
 scrapeDallasNews();
