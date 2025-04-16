@@ -43,7 +43,7 @@ const scrapeDallasNews = async () => {
   for (const article of articles) {
     const { error, data, status } = await supabase
       .from('news_articles')
-      .upsert(article, { onConflict: ['url'] });
+      .upsert([article], { onConflict: ['url'] });
 
     if (error) {
       console.error('❌ Insert error:', error.message || error, 'Details:', error.details || '-', 'Article:', article);
