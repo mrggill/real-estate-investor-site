@@ -1,7 +1,7 @@
-// scripts/dallasNewsScraper.js
-const cheerio = require('cheerio');
-const fetch = require('node-fetch');
-const { createClient } = require('@supabase/supabase-js');
+// scripts/dallasNewsScraper.mjs
+import cheerio from 'cheerio';
+import fetch from 'node-fetch';
+import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -21,7 +21,7 @@ const scrapeDallasNews = async () => {
     const link = 'https://www.dallasecodev.org' + $(el).find('a').attr('href');
     const dateText = $(el).find('.date').text().trim();
     const date = new Date(dateText);
-    
+
     articles.push({
       title: headline,
       url: link,
