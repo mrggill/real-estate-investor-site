@@ -17,18 +17,21 @@ const scrapeDallasNews = async () => {
   const articles = [];
 
   $('.item').each((i, el) => {
-    const headline = $(el).find('.title').text().trim();
-    const link = 'https://www.dallasecodev.org' + $(el).find('a').attr('href');
-    const dateText = $(el).find('.date').text().trim();
-    const parsedDate = new Date(dateText);
-  
-    console.log(`Scraping: "${headline}" - Raw date: "${dateText}"`);
-  
-    if (isNaN(parsedDate)) {
-      console.warn(`Invalid date for article "${headline}", skipping.`);
+    const anchor = $(el).find('a[id^="alertTitle_"]');
+    const headline = anchor.text().trim();
+    const link = 'https://www.dallasecodev.org' + anchor.attr('href');
+
+    const rawDate = $(el).find('.date').text().trim();
+    const cleanDate = rawDate.replace('Posted on:', '').split('|')[0].trim();
+    const parsedDate = new Date(cleanDate);
+
+    console.log(`Scraping: "${headline}" - Raw date: "${cleanDate}"`);
+
+    if (!headline || isNaN(parsedDate)) {
+      console.warn(`Invalid article - skipping. Headline: "${headline}"`);
       return;
     }
-  
+
     articles.push({
       title: headline,
       url: link,
@@ -36,12 +39,10 @@ const scrapeDallasNews = async () => {
       city: 'Dallas',
       state: 'TX',
     });
-  });  
+  });
 
   for (const article of articles) {
-    const { error } = await supabase
-      .from('news_articles')
-      .insert([article]);
+    const { error } = await supabase.from('news_articles').insert([article]);
 
     if (error) {
       console.error('Insert error:', JSON.stringify(error, null, 2));
