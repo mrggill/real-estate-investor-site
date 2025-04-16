@@ -33,6 +33,7 @@ function Header() {
       <div className="container mx-auto p-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold">RE Investor</h1>
         <nav className="space-x-4">
+        <Link href="/dashboard" className="hover:underline cursor-pointer">Dashboard</Link>
           <Link href="/" className="hover:underline cursor-pointer">Home</Link>
           <Link href="/news" className="hover:underline cursor-pointer">News</Link>
           <Link href="/map" className="hover:underline cursor-pointer">Map</Link>
