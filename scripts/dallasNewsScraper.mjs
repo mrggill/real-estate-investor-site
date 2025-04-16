@@ -20,16 +20,23 @@ const scrapeDallasNews = async () => {
     const headline = $(el).find('.title').text().trim();
     const link = 'https://www.dallasecodev.org' + $(el).find('a').attr('href');
     const dateText = $(el).find('.date').text().trim();
-    const date = new Date(dateText);
-
+    const parsedDate = new Date(dateText);
+  
+    console.log(`Scraping: "${headline}" - Raw date: "${dateText}"`);
+  
+    if (isNaN(parsedDate)) {
+      console.warn(`Invalid date for article "${headline}", skipping.`);
+      return;
+    }
+  
     articles.push({
       title: headline,
       url: link,
-      date: date.toISOString().split('T')[0],
+      date: parsedDate.toISOString().split('T')[0],
       city: 'Dallas',
       state: 'TX',
     });
-  });
+  });  
 
   for (const article of articles) {
     const { error } = await supabase
