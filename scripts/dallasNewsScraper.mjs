@@ -44,7 +44,7 @@ const scrapeDallasNews = async () => {
       .insert([article]);
 
     if (error) {
-      console.error('Insert error:', error);
+      console.error('Insert error:', JSON.stringify(error, null, 2));
     } else {
       console.log('Inserted:', article.title);
     }
