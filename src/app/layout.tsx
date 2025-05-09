@@ -1,6 +1,7 @@
 import './globals.css'
 import ClientProvider from './ClientProvider'
 import Link from 'next/link'
+import ThemeToggle from '../components/ThemeToggle'
 
 export const metadata = {
   title: 'Real Estate Investor Site',
@@ -32,13 +33,16 @@ function Header() {
     <header className="bg-white shadow-md">
       <div className="container mx-auto p-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold">RE Investor</h1>
-        <nav className="space-x-4">
-        <Link href="/dashboard" className="hover:underline cursor-pointer">Dashboard</Link>
-          <Link href="/" className="hover:underline cursor-pointer">Home</Link>
-          <Link href="/news" className="hover:underline cursor-pointer">News</Link>
-          <Link href="/map" className="hover:underline cursor-pointer">Map</Link>
-          <Link href="/login" className="hover:underline cursor-pointer">Login</Link>
-        </nav>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          <nav className="space-x-4">
+            <Link href="/dashboard" className="hover:underline cursor-pointer">Dashboard</Link>
+            <Link href="/" className="hover:underline cursor-pointer">Home</Link>
+            <Link href="/news" className="hover:underline cursor-pointer">News</Link>
+            <Link href="/map" className="hover:underline cursor-pointer">Map</Link>
+            <Link href="/login" className="hover:underline cursor-pointer">Login</Link>
+          </nav>
+        </div>
       </div>
     </header>
   )
