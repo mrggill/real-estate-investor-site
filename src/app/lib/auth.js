@@ -1,21 +1,24 @@
-// /src/app/lib/auth.js
 "use client";
 
-export function login(token, userData) {
-  localStorage.setItem('auth_token', token);
+export async function login(token, userData) {
+  // Store user data in localStorage for easy access on client
   localStorage.setItem('user_data', JSON.stringify(userData));
+  
+  // Set a flag to indicate logged in status
+  localStorage.setItem('is_logged_in', 'true');
   
   // Dispatch storage event to notify other tabs
   window.dispatchEvent(new Event('storage'));
 }
 
 export function logout() {
-  localStorage.removeItem('auth_token');
   localStorage.removeItem('user_data');
+  localStorage.removeItem('is_logged_in');
   
-  // Call logout API
+  // Call logout API to clear server-side cookies
   fetch('/api/auth/logout', {
-    method: 'POST'
+    method: 'POST',
+    credentials: 'include' // Important for cookies
   }).catch(error => {
     console.error('Logout failed:', error);
   });
@@ -26,25 +29,7 @@ export function logout() {
 
 export function isLoggedIn() {
   if (typeof window !== 'undefined') {
-    const token = localStorage.getItem('auth_token');
-    if (!token) return false;
-    
-    try {
-      // Verify token hasn't expired
-      const tokenData = JSON.parse(atob(token.split('.')[1]));
-      const currentTime = Math.floor(Date.now() / 1000);
-      
-      if (tokenData.exp && tokenData.exp < currentTime) {
-        // Token expired, clean up
-        logout();
-        return false;
-      }
-      
-      return true;
-    } catch (error) {
-      console.error('Error verifying token:', error);
-      return false;
-    }
+    return localStorage.getItem('is_logged_in') === 'true';
   }
   return false;
 }

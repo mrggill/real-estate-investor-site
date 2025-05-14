@@ -1,11 +1,13 @@
 import './globals.css'
-import ClientProvider from './ClientProvider'
-import Link from 'next/link'
-import ThemeToggle from '../components/ThemeToggle'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import Navbar from '@/components/Navbar'
 
-export const metadata = {
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
   title: 'Real Estate Investor Site',
-  description: 'Dashboard and data for real estate investors',
+  description: 'Find properties and investment opportunities',
 }
 
 export default function RootLayout({
@@ -15,43 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col cursor-pointer">
-        <ClientProvider>
-          <Header />
-          <main className="flex-grow container mx-auto p-6">
-            {children}
-          </main>
-          <Footer />
-        </ClientProvider>
+      <body className={`${inter.className} min-h-screen bg-gray-50 dark:bg-gray-900`}>
+        <Navbar />
+        <main>{children}</main>
       </body>
     </html>
-  )
-}
-
-function Header() {
-  return (
-    <header className="bg-white shadow-md">
-      <div className="container mx-auto p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">RE Investor</h1>
-        <div className="flex items-center gap-4">
-          <ThemeToggle />
-          <nav className="space-x-4">
-            <Link href="/dashboard" className="hover:underline cursor-pointer">Dashboard</Link>
-            <Link href="/" className="hover:underline cursor-pointer">Home</Link>
-            <Link href="/news" className="hover:underline cursor-pointer">News</Link>
-            <Link href="/map" className="hover:underline cursor-pointer">Map</Link>
-            <Link href="/login" className="hover:underline cursor-pointer">Login</Link>
-          </nav>
-        </div>
-      </div>
-    </header>
-  )
-}
-
-function Footer() {
-  return (
-    <footer className="bg-gray-100 text-center p-4">
-      <p className="text-sm text-gray-600">&copy; {new Date().getFullYear()} RE Investor</p>
-    </footer>
   )
 }

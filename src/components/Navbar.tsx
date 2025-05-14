@@ -1,173 +1,251 @@
-// src/components/Navbar.tsx
-'use client';
+"use client";
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ResponsiveContainer from './ResponsiveContainer';
-import { isLoggedIn, getUser, logout } from '../app/lib/auth';
+import { 
+  Bars3Icon, 
+  XMarkIcon, 
+  SunIcon, 
+  MoonIcon,
+  HomeIcon,
+  NewspaperIcon,
+  CalculatorIcon,
+  UserIcon
+} from '@heroicons/react/24/outline';
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
-  const [userName, setUserName] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const pathname = usePathname();
-  
+
   useEffect(() => {
-    // Check login status
-    const checkLoginStatus = () => {
-      const loggedIn = isLoggedIn();
-      setUserLoggedIn(loggedIn);
+    // Check for dark mode preference
+    try {
+      const storedDarkMode = localStorage.getItem('darkMode') === 'true';
+      setIsDarkMode(storedDarkMode);
       
-      if (loggedIn) {
-        const user = getUser();
-        setUserName(user?.name || 'User');
+      if (storedDarkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
       }
-    };
-    
-    // Initial check
-    checkLoginStatus();
-    
-    // Add listener for storage events (for multi-tab sync)
-    window.addEventListener('storage', checkLoginStatus);
-    
-    // Cleanup
-    return () => {
-      window.removeEventListener('storage', checkLoginStatus);
-    };
+    } catch (err) {
+      console.error('Error accessing localStorage:', err);
+    }
   }, []);
-  
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'News', href: '/news' },
-    { name: 'Dashboard', href: '/dashboard' },
-  ];
-  
-  // Get initials for avatar
-  const getInitials = (name) => {
-    return name
-      .split(' ')
-      .map(part => part[0])
-      .join('')
-      .toUpperCase()
-      .substring(0, 2);
+
+  const toggleDarkMode = () => {
+    try {
+      const newDarkMode = !isDarkMode;
+      setIsDarkMode(newDarkMode);
+      localStorage.setItem('darkMode', String(newDarkMode));
+      
+      if (newDarkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (err) {
+      console.error('Error setting localStorage:', err);
+    }
   };
-  
-  const handleLogout = () => {
-    logout();
-    setUserLoggedIn(false);
-  };
-  
-  const isActive = (path) => {
-    if (path === '/') return pathname === '/';
-    return pathname.startsWith(path);
-  };
-  
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <ResponsiveContainer>
-        <nav className="flex items-center justify-between py-4">
+    <nav className="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold text-blue-600">Real Estate Investor</span>
+            <Link href="/" className="flex-shrink-0 flex items-center">
+              <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">RE</span>
+              <span className="text-2xl font-bold text-gray-900 dark:text-white ml-1">Invest</span>
             </Link>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`text-sm font-medium transition-colors ${
-                  isActive(item.href)
-                    ? 'text-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-          
-          <div className="flex items-center">
-            {/* Conditionally render login or logout */}
-            {!userLoggedIn ? (
-              <Link
-                href="/login"
-                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Login Now
-              </Link>
-            ) : (
-              <div className="flex items-center space-x-3">
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-medium">
-                    {getInitials(userName)}
-                  </div>
-                  <span className="text-sm font-medium hidden sm:inline-block">{userName}</span>
-                </div>
-                <button 
-                  onClick={handleLogout}
-                  className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  Logout
-                </button>
-              </div>
-            )}
+            <Link 
+              href="/"
+              className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
+                pathname === '/' 
+                ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400' 
+                : 'text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white'
+              }`}
+            >
+              <HomeIcon className="h-5 w-5 mr-1" />
+              Home
+            </Link>
             
-            {/* Mobile menu button */}
+            <Link 
+              href="/news"
+              className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
+                pathname?.startsWith('/news') 
+                ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400' 
+                : 'text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white'
+              }`}
+            >
+              <NewspaperIcon className="h-5 w-5 mr-1" />
+              News
+            </Link>
+            
+            <Link 
+              href="/listings"
+              className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
+                pathname?.startsWith('/listings') 
+                ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400' 
+                : 'text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white'
+              }`}
+            >
+              <HomeIcon className="h-5 w-5 mr-1" />
+              Properties
+            </Link>
+            
+            <Link 
+              href="/tools"
+              className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
+                pathname?.startsWith('/tools') 
+                ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400' 
+                : 'text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white'
+              }`}
+            >
+              <CalculatorIcon className="h-5 w-5 mr-1" />
+              Tools
+            </Link>
+            
             <button
               type="button"
-              className="ml-4 md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={toggleDarkMode}
+              className="inline-flex items-center p-2 rounded-full text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              {isDarkMode ? (
+                <SunIcon className="h-5 w-5" />
+              ) : (
+                <MoonIcon className="h-5 w-5" />
+              )}
+            </button>
+            
+            <Link
+              href="/signin"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              <UserIcon className="h-5 w-5 mr-1" />
+              Sign In
+            </Link>
+            
+            <Link
+              href="/signup"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+            >
+              Sign Up
+            </Link>
+          </div>
+          
+          {/* Mobile menu button */}
+          <div className="flex md:hidden">
+            <button
+              type="button"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
-              {mobileMenuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
+              {isMenuOpen ? (
+                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
+                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
-        </nav>
-      </ResponsiveContainer>
-      
-      {/* Mobile menu */}
-      <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                isActive(item.href)
-                  ? 'text-blue-600 bg-gray-100'
-                  : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
-          
-          {/* Add logout to mobile menu when logged in */}
-          {userLoggedIn && (
-            <button
-              onClick={() => {
-                handleLogout();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-            >
-              Logout
-            </button>
-          )}
         </div>
       </div>
-    </header>
+
+      {/* Mobile menu, show/hide based on menu state */}
+      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
+        <div className="pt-2 pb-3 space-y-1">
+          <Link
+            href="/"
+            className={`block pl-3 pr-4 py-2 text-base font-medium ${
+              pathname === '/'
+              ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-600 dark:border-blue-400'
+              : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-l-4 hover:border-gray-300 dark:hover:border-gray-600'
+            }`}
+          >
+            Home
+          </Link>
+          
+          <Link
+            href="/news"
+            className={`block pl-3 pr-4 py-2 text-base font-medium ${
+              pathname?.startsWith('/news')
+              ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-600 dark:border-blue-400'
+              : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-l-4 hover:border-gray-300 dark:hover:border-gray-600'
+            }`}
+          >
+            News
+          </Link>
+          
+          <Link
+            href="/listings"
+            className={`block pl-3 pr-4 py-2 text-base font-medium ${
+              pathname?.startsWith('/listings')
+              ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-600 dark:border-blue-400'
+              : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-l-4 hover:border-gray-300 dark:hover:border-gray-600'
+            }`}
+          >
+            Properties
+          </Link>
+          
+          <Link
+            href="/tools"
+            className={`block pl-3 pr-4 py-2 text-base font-medium ${
+              pathname?.startsWith('/tools')
+              ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-600 dark:border-blue-400'
+              : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-l-4 hover:border-gray-300 dark:hover:border-gray-600'
+            }`}
+          >
+            Tools
+          </Link>
+        </div>
+        
+        <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex items-center justify-between px-4">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <button
+                  type="button"
+                  onClick={toggleDarkMode}
+                  className="inline-flex items-center p-2 rounded-full text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  {isDarkMode ? (
+                    <SunIcon className="h-5 w-5" />
+                  ) : (
+                    <MoonIcon className="h-5 w-5" />
+                  )}
+                </button>
+              </div>
+            </div>
+            <div className="flex space-x-3">
+              <Link
+                href="/signin"
+                className="block px-4 py-2 text-base font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                Sign In
+              </Link>
+              
+              <Link
+                href="/signup"
+                className="block px-4 py-2 text-base font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+              >
+                Sign Up
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }
