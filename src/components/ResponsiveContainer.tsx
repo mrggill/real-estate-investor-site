@@ -1,14 +1,17 @@
 // src/components/ResponsiveContainer.tsx
-import { ReactNode } from 'react';
+"use client";
 
 interface ResponsiveContainerProps {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
 }
 
-export default function ResponsiveContainer({ children, className = '' }: ResponsiveContainerProps) {
+export default function ResponsiveContainer({ 
+  children, 
+  className = ""
+}: ResponsiveContainerProps) {
   return (
-    <div className={`w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 mx-auto max-w-7xl ${className}`}>
+    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
       {children}
     </div>
   );

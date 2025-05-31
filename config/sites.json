@@ -1,0 +1,37 @@
+{
+  "sites": [
+    {
+      "name": "Axios Dallas",
+      "url": "https://www.axios.com/local/dallas/news",
+      "enabled": true,
+      "scrapeOptions": {
+        "selectors": {
+          "articleLinks": [
+            "a[href*=\"/2025/\"]:not([href*=\"membership\"])",
+            "a[href*=\"/2024/\"]:not([href*=\"membership\"])",
+            "a[href*=\"/2023/\"]:not([href*=\"membership\"])",
+            "a[href*=\"/2022/\"]:not([href*=\"membership\"])",
+            "a[href*=\"/2021/\"]:not([href*=\"membership\"])",
+            "a[href*=\"/2020/\"]:not([href*=\"membership\"])",
+            "article a[href*=\"/local/dallas/20\"]",
+            "div[data-cy*=\"gridContent\"] a[href*=\"/local/dallas/20\"]",
+            "div[data-cy*=\"collection\"] a[href*=\"/20\"]"
+          ],
+          "content": [
+            "article[data-cy=\"articleContent\"]",
+            "div[data-cy=\"articleBody\"]",
+            "div.article-body",
+            "div[data-cy=\"articleContent\"]",
+            "main article",
+            "article",
+            "div[role=\"main\"]",
+            "main div[data-cy]"
+          ]
+        },
+        "loadMoreAttempts": 100,
+        "scrollBehavior": "infinite",
+        "waitForSelector": "main"
+      }
+    }
+  ]
+}

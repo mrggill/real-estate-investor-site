@@ -1,0 +1,12 @@
+{
+  "sites": {
+    "https://www.axios.com/local/dallas/news": {
+      "lastScrape": "2025-05-15T18:49:50.788Z",
+      "lastStatus": "success",
+      "articleCount": 0,
+      "successCount": 8,
+      "failureCount": 1
+    }
+  },
+  "lastFullScrape": null
+}

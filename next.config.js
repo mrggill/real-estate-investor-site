@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
+// New ES module syntax
 const nextConfig = {
-  reactStrictMode: true,
+  // your config
 }
 
-module.exports = nextConfig
+export default nextConfig

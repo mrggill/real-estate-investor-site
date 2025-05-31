@@ -1,0 +1,42 @@
+[2025-05-15T18:45:47.780Z] [SECTION] 
+===============================
+  TESTING DATABASE CONNECTION  
+===============================
+
+[2025-05-15T18:45:47.780Z] [INFO] Initializing Supabase connection...
+[2025-05-15T18:45:48.070Z] [ERROR] Supabase connection test failed: Supabase connection test failed: "failed to parse select parameter (count(*))" (line 1, column 6)
+Error: Supabase connection test failed: "failed to parse select parameter (count(*))" (line 1, column 6)
+    at DatabaseManager.testConnection (file:///Users/gurpreetgill/Projects/real-estate-investor-site/src/scrapers/modules/db-manager.mjs:59:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async DatabaseManager.init (file:///Users/gurpreetgill/Projects/real-estate-investor-site/src/scrapers/modules/db-manager.mjs:30:9)
+    at async testDbConnection (file:///Users/gurpreetgill/Projects/real-estate-investor-site/src/test-db-connection.mjs:11:3)
+[2025-05-15T18:45:48.071Z] [SUCCESS] Supabase connection initialized
+[2025-05-15T18:45:48.071Z] [INFO] Current testConnection method:
+[2025-05-15T18:45:48.071Z] [INFO] async testConnection() {
+    if (!this.enabled || !this.supabase) {
+      return false;
+    }
+
+    try {
+      const { data, error } = await this.supabase.from('articles').select('count(*)', { count: 'exact' }).limit(1);
+      
+      if (error) {
+        throw new Error(`Supabase connection test failed: ${error.message}`);
+      }
+      
+      logger.database(`Successfully connected to Supabase`);
+      return true;
+    } catch (error) {
+      logger.error('Supabase connection test failed', error);
+      return false;
+    }
+  }
+[2025-05-15T18:45:48.072Z] [INFO] Available methods on db object:
+[2025-05-15T18:45:48.072Z] [INFO] - init
+[2025-05-15T18:45:48.072Z] [INFO] - testConnection
+[2025-05-15T18:45:48.073Z] [INFO] - getContentFingerprint
+[2025-05-15T18:45:48.073Z] [INFO] - getExistingArticles
+[2025-05-15T18:45:48.073Z] [INFO] - saveArticle
+[2025-05-15T18:45:48.073Z] [INFO] - saveArticles
+[2025-05-15T18:45:48.073Z] [INFO] - getArticlesForTraining
+[2025-05-15T18:45:48.073Z] [INFO] Test complete

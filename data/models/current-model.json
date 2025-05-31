@@ -1,0 +1,16 @@
+{
+  "modelPath": "/Users/gurpreetgill/Projects/real-estate-investor-site/data/models/sklearn-rf-2025-05-24-15-03-46.joblib",
+  "type": "sklearn-random-forest",
+  "trainedOn": "2025-05-24T15:03:46.352757",
+  "performance": {
+    "accuracy": 0.375,
+    "precision": 0.16666666666666666,
+    "recall": 1.0,
+    "f1": 0.2857142857142857
+  },
+  "trainingSize": {
+    "relevant": 20,
+    "irrelevant": 20,
+    "total": 40
+  }
+}

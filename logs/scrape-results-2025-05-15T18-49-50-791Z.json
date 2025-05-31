@@ -1,0 +1,16 @@
+{
+  "date": "2025-05-15T18:49:50.791Z",
+  "sites": 1,
+  "success": 1,
+  "failed": 0,
+  "newArticles": 0,
+  "results": [
+    {
+      "site": "Axios Dallas",
+      "success": true,
+      "totalArticles": 28,
+      "newArticles": 0,
+      "error": null
+    }
+  ]
+}

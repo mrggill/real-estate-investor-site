@@ -1,0 +1,228 @@
+[2025-05-15T18:47:24.639Z] [INFO] Testing database connection...
+[2025-05-15T18:47:24.640Z] [INFO] Initializing Supabase connection...
+[2025-05-15T18:47:24.639Z] [SECTION] 
+======================
+  COMPREHENSIVE TEST  
+======================
+
+[2025-05-15T18:47:24.856Z] [DATABASE] Successfully connected to Supabase
+[2025-05-15T18:47:24.856Z] [SUCCESS] Supabase connection initialized
+[2025-05-15T18:47:24.857Z] [INFO] Loading feedback...
+[2025-05-15T18:47:24.864Z] [INFO] Loaded feedback with 0 included and 0 excluded articles
+[2025-05-15T18:47:24.865Z] [INFO] Loaded feedback with 0 included and 0 excluded articles
+[2025-05-15T18:47:24.865Z] [INFO] Loading configuration...
+[2025-05-15T18:47:24.869Z] [INFO] Loaded configuration with 1 sites
+[2025-05-15T18:47:24.869Z] [INFO] Testing with site: Axios Dallas
+[2025-05-15T18:47:25.843Z] [INFO] Scraping site with articles newer than 2025-05-14...
+[2025-05-15T18:47:25.845Z] [SECTION] 
+====================================
+  Starting scrape for Axios Dallas  
+====================================
+
+[2025-05-15T18:47:25.845Z] [INFO] Only processing articles newer than 2025-05-14
+[2025-05-15T18:47:37.253Z] [INFO] Waiting for content to initialize...
+[2025-05-15T18:47:40.270Z] [INFO] Checking initial number of article links...
+[2025-05-15T18:47:40.354Z] [STATS] Initial article count: 18
+[2025-05-15T18:47:40.355Z] [INFO] Starting sequential load more process...
+[2025-05-15T18:47:40.399Z] [INFO] Load more attempt 1/100...
+[2025-05-15T18:47:40.399Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:47:43.651Z] [INFO] Found load more button with selector: button:has-text("Show more stories")
+[2025-05-15T18:47:43.686Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:47:48.827Z] [STATS] Current article count: 18 (previously: 18)
+[2025-05-15T18:47:48.828Z] [WARNING] No new articles found (attempt 1/5)
+[2025-05-15T18:47:50.828Z] [INFO] Load more attempt 2/100...
+[2025-05-15T18:47:50.829Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:47:53.895Z] [INFO] Found load more button with selector: a:has-text("Next")
+[2025-05-15T18:47:53.948Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:47:59.366Z] [STATS] Current article count: 23 (previously: 18)
+[2025-05-15T18:47:59.367Z] [SUCCESS] Progress! Found 5 new articles
+[2025-05-15T18:48:01.367Z] [INFO] Load more attempt 3/100...
+[2025-05-15T18:48:01.368Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:48:04.408Z] [INFO] Found load more button with selector: button:has-text("More stories")
+[2025-05-15T18:48:04.452Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:48:09.624Z] [STATS] Current article count: 43 (previously: 23)
+[2025-05-15T18:48:09.625Z] [SUCCESS] Progress! Found 20 new articles
+[2025-05-15T18:48:11.626Z] [INFO] Load more attempt 4/100...
+[2025-05-15T18:48:11.626Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:48:14.665Z] [INFO] Found load more button with selector: button:has-text("More stories")
+[2025-05-15T18:48:14.702Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:48:19.890Z] [STATS] Current article count: 63 (previously: 43)
+[2025-05-15T18:48:19.890Z] [SUCCESS] Progress! Found 20 new articles
+[2025-05-15T18:48:21.891Z] [INFO] Load more attempt 5/100...
+[2025-05-15T18:48:21.891Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:48:24.919Z] [INFO] Found load more button with selector: button:has-text("More stories")
+[2025-05-15T18:48:24.983Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:48:30.200Z] [STATS] Current article count: 79 (previously: 63)
+[2025-05-15T18:48:30.200Z] [SUCCESS] Progress! Found 16 new articles
+[2025-05-15T18:48:32.203Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:48:32.202Z] [INFO] Load more attempt 6/100...
+[2025-05-15T18:48:35.886Z] [INFO] Found load more button with selector: button:has-text("More stories")
+[2025-05-15T18:48:35.936Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:48:42.585Z] [STATS] Current article count: 99 (previously: 79)
+[2025-05-15T18:48:42.585Z] [SUCCESS] Progress! Found 20 new articles
+[2025-05-15T18:48:44.585Z] [INFO] Load more attempt 7/100...
+[2025-05-15T18:48:44.585Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:48:47.620Z] [INFO] Found load more button with selector: button:has-text("More stories")
+[2025-05-15T18:48:47.670Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:48:52.924Z] [STATS] Current article count: 103 (previously: 99)
+[2025-05-15T18:48:52.924Z] [SUCCESS] Progress! Found 4 new articles
+[2025-05-15T18:48:54.925Z] [INFO] Load more attempt 8/100...
+[2025-05-15T18:48:54.926Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:48:57.976Z] [INFO] Found button outside viewport, scrolling to it...
+[2025-05-15T18:48:58.994Z] [INFO] Found load more button with selector: button:has-text("Next")
+[2025-05-15T18:48:59.038Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:49:04.395Z] [STATS] Current article count: 103 (previously: 103)
+[2025-05-15T18:49:04.395Z] [WARNING] No new articles found (attempt 1/5)
+[2025-05-15T18:49:06.396Z] [INFO] Load more attempt 9/100...
+[2025-05-15T18:49:06.396Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:49:09.451Z] [INFO] Found button outside viewport, scrolling to it...
+[2025-05-15T18:49:10.460Z] [INFO] Found load more button with selector: button:has-text("Next")
+[2025-05-15T18:49:10.515Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:49:15.909Z] [WARNING] No new articles found (attempt 2/5)
+[2025-05-15T18:49:15.909Z] [STATS] Current article count: 103 (previously: 103)
+[2025-05-15T18:49:17.911Z] [INFO] Load more attempt 10/100...
+[2025-05-15T18:49:17.911Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:49:20.961Z] [INFO] Found button outside viewport, scrolling to it...
+[2025-05-15T18:49:21.978Z] [INFO] Found load more button with selector: button:has-text("Next")
+[2025-05-15T18:49:22.032Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:49:27.281Z] [STATS] Current article count: 103 (previously: 103)
+[2025-05-15T18:49:27.281Z] [WARNING] No new articles found (attempt 3/5)
+[2025-05-15T18:49:29.283Z] [INFO] Load more attempt 11/100...
+[2025-05-15T18:49:29.283Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:49:32.547Z] [INFO] Found button outside viewport, scrolling to it...
+[2025-05-15T18:49:33.559Z] [INFO] Found load more button with selector: button:has-text("Next")
+[2025-05-15T18:49:33.612Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:49:38.844Z] [STATS] Current article count: 103 (previously: 103)
+[2025-05-15T18:49:38.844Z] [WARNING] No new articles found (attempt 4/5)
+[2025-05-15T18:49:40.846Z] [INFO] Load more attempt 12/100...
+[2025-05-15T18:49:40.847Z] [INFO] Scrolling to bottom of page...
+[2025-05-15T18:49:43.896Z] [INFO] Found button outside viewport, scrolling to it...
+[2025-05-15T18:49:44.907Z] [INFO] Found load more button with selector: button:has-text("Next")
+[2025-05-15T18:49:44.960Z] [INFO] Clicking "load more" button...
+[2025-05-15T18:49:50.196Z] [STATS] Current article count: 103 (previously: 103)
+[2025-05-15T18:49:50.196Z] [WARNING] No new articles found (attempt 5/5)
+[2025-05-15T18:49:50.196Z] [WARNING] Reached maximum attempts without progress, stopping load more process
+[2025-05-15T18:49:50.196Z] [STATS] Load more process complete. Clicked 12 load more buttons.
+[2025-05-15T18:49:50.196Z] [INFO] Saving final page state for analysis...
+[2025-05-15T18:49:50.408Z] [INFO] Collecting articles with multiple selectors...
+[2025-05-15T18:49:50.408Z] [INFO] Trying selector: a[href*="/2025/"]:not([href*="membership"])
+[2025-05-15T18:49:50.417Z] [STATS] Found 51 items with selector: a[href*="/2025/"]:not([href*="membership"])
+[2025-05-15T18:49:50.417Z] [INFO] Trying selector: a[href*="/2024/"]:not([href*="membership"])
+[2025-05-15T18:49:50.422Z] [STATS] Found 1 items with selector: a[href*="/2024/"]:not([href*="membership"])
+[2025-05-15T18:49:50.423Z] [INFO] Trying selector: a[href*="/2023/"]:not([href*="membership"])
+[2025-05-15T18:49:50.428Z] [STATS] Found 0 items with selector: a[href*="/2023/"]:not([href*="membership"])
+[2025-05-15T18:49:50.428Z] [INFO] Trying selector: a[href*="/2022/"]:not([href*="membership"])
+[2025-05-15T18:49:50.432Z] [STATS] Found 1 items with selector: a[href*="/2022/"]:not([href*="membership"])
+[2025-05-15T18:49:50.432Z] [INFO] Trying selector: a[href*="/2021/"]:not([href*="membership"])
+[2025-05-15T18:49:50.435Z] [INFO] Trying selector: a[href*="/2020/"]:not([href*="membership"])
+[2025-05-15T18:49:50.435Z] [STATS] Found 0 items with selector: a[href*="/2021/"]:not([href*="membership"])
+[2025-05-15T18:49:50.438Z] [STATS] Found 0 items with selector: a[href*="/2020/"]:not([href*="membership"])
+[2025-05-15T18:49:50.439Z] [INFO] Trying selector: article a[href*="/local/dallas/20"]
+[2025-05-15T18:49:50.444Z] [STATS] Found 0 items with selector: article a[href*="/local/dallas/20"]
+[2025-05-15T18:49:50.444Z] [INFO] Trying selector: div[data-cy*="gridContent"] a[href*="/local/dallas/20"]
+[2025-05-15T18:49:50.450Z] [STATS] Found 0 items with selector: div[data-cy*="gridContent"] a[href*="/local/dallas/20"]
+[2025-05-15T18:49:50.450Z] [INFO] Trying selector: div[data-cy*="collection"] a[href*="/20"]
+[2025-05-15T18:49:50.454Z] [STATS] Found 0 items with selector: div[data-cy*="collection"] a[href*="/20"]
+[2025-05-15T18:49:50.454Z] [STATS] Found 28 unique articles
+[2025-05-15T18:49:50.455Z] [STATS] Found 27 unique articles after filtering
+[2025-05-15T18:49:50.455Z] [INFO] Checking for existing articles...
+[2025-05-15T18:49:50.758Z] [STATS] Found 37 existing articles in database
+[2025-05-15T18:49:50.758Z] [INFO] Processing up to 50 articles...
+[2025-05-15T18:49:50.760Z] [INFO] Processing article: next year's FIFA World Cup
+[2025-05-15T18:49:50.760Z] [INFO] URL: https://www.axios.com/local/dallas/2025/03/11/dallas-fort-worth-dfw-dffw-dfwaf
+[2025-05-15T18:49:50.760Z] [INFO] Skipping existing article: next year's FIFA World Cup
+[2025-05-15T18:49:50.760Z] [INFO] Processing article: Making Dallas a tourist destination
+[2025-05-15T18:49:50.760Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/09/dallas-tourism-world-cup
+[2025-05-15T18:49:50.761Z] [INFO] Skipping existing article: Making Dallas a tourist destination
+[2025-05-15T18:49:50.761Z] [INFO] Processing article: Former Dallas bishop temporarily leads Catholic Church
+[2025-05-15T18:49:50.761Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/21/dallas-pope-francis-kevin-joseph-farrell
+[2025-05-15T18:49:50.761Z] [INFO] Skipping existing article: Former Dallas bishop temporarily leads Catholic Church
+[2025-05-15T18:49:50.761Z] [INFO] Processing article: More anti-Trump protests planned in Dallas-Fort Worth
+[2025-05-15T18:49:50.762Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/17/anti-trump-protests-dallas-fort-worth
+[2025-05-15T18:49:50.762Z] [INFO] Skipping existing article: More anti-Trump protests planned in Dallas-Fort Worth
+[2025-05-15T18:49:50.762Z] [INFO] Processing article: Why Dallas-Fort Worth embraces the sprawl
+[2025-05-15T18:49:50.762Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/01/dallas-fort-worth-housing-sprawl
+[2025-05-15T18:49:50.763Z] [INFO] Skipping existing article: Why Dallas-Fort Worth embraces the sprawl
+[2025-05-15T18:49:50.763Z] [INFO] Processing article: What's on the May 3 ballot in Dallas-Fort Worth
+[2025-05-15T18:49:50.763Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/30/dallas-fort-worth-may-election
+[2025-05-15T18:49:50.763Z] [INFO] Skipping existing article: What's on the May 3 ballot in Dallas-Fort Worth
+[2025-05-15T18:49:50.763Z] [INFO] Processing article: Major League Cricket moving to Grand Prairie ahead of its third season
+[2025-05-15T18:49:50.763Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/24/major-league-cricket-us-expansion-grand-prairie
+[2025-05-15T18:49:50.764Z] [INFO] Skipping existing article: Major League Cricket moving to Grand Prairie ahead of its third season
+[2025-05-15T18:49:50.764Z] [INFO] Processing article: Dallas Mavericks win the No. 1 pick in NBA draft lottery
+[2025-05-15T18:49:50.764Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/13/dallas-mavericks-draft-nba-lottery-cooper-flagg
+[2025-05-15T18:49:50.764Z] [INFO] Skipping existing article: Dallas Mavericks win the No. 1 pick in NBA draft lottery
+[2025-05-15T18:49:50.764Z] [INFO] Processing article: North Texas schools downgraded in state's new ratings
+[2025-05-15T18:49:50.764Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/24/dallas-fort-worth-school-ratings-tea
+[2025-05-15T18:49:50.764Z] [INFO] Skipping existing article: North Texas schools downgraded in state's new ratings
+[2025-05-15T18:49:50.764Z] [INFO] Processing article: Southwest and American report first-quarter losses amid economic uncertainty
+[2025-05-15T18:49:50.765Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/25/southwest-american-delta-tariffs-business-outlook
+[2025-05-15T18:49:50.765Z] [INFO] Skipping existing article: Southwest and American report first-quarter losses amid economic uncertainty
+[2025-05-15T18:49:50.766Z] [INFO] Processing article: Fort Worth ISD warned of possible state takeover
+[2025-05-15T18:49:50.766Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/08/fort-worth-isd-state-takeover
+[2025-05-15T18:49:50.766Z] [INFO] Skipping existing article: Fort Worth ISD warned of possible state takeover
+[2025-05-15T18:49:50.766Z] [INFO] Processing article: Dallas heat islands can be 12 degrees hotter than other neighborhoods
+[2025-05-15T18:49:50.767Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/16/dallas-heat-islands
+[2025-05-15T18:49:50.767Z] [INFO] Skipping existing article: Dallas heat islands can be 12 degrees hotter than other neighborhoods
+[2025-05-15T18:49:50.767Z] [INFO] Processing article: Real ID air travel requirement finally here
+[2025-05-15T18:49:50.767Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/06/real-id-texas
+[2025-05-15T18:49:50.767Z] [INFO] Skipping existing article: Real ID air travel requirement finally here
+[2025-05-15T18:49:50.767Z] [INFO] Processing article: American Airlines, DFW Airport plan $4B terminal
+[2025-05-15T18:49:50.767Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/01/american-airlines-dfw-airport-terminal-f
+[2025-05-15T18:49:50.767Z] [INFO] Skipping existing article: American Airlines, DFW Airport plan $4B terminal
+[2025-05-15T18:49:50.768Z] [INFO] Processing article: Dallas Cowboys to play Philadelphia Eagles in NFL season opener
+[2025-05-15T18:49:50.768Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/12/dallas-cowboys-philadelphia-eagles-season-opener
+[2025-05-15T18:49:50.768Z] [INFO] Skipping existing article: Dallas Cowboys to play Philadelphia Eagles in NFL season opener
+[2025-05-15T18:49:50.768Z] [INFO] Processing article: Dallas-Fort Worth runs afoul of federal air standards
+[2025-05-15T18:49:50.768Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/22/dallas-fort-worth-ozone-air-pollution
+[2025-05-15T18:49:50.768Z] [INFO] Skipping existing article: Dallas-Fort Worth runs afoul of federal air standards
+[2025-05-15T18:49:50.768Z] [INFO] Processing article: Texas business execs report more tariff uncertainty
+[2025-05-15T18:49:50.768Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/28/dallas-fed-tariffs-texas-business
+[2025-05-15T18:49:50.769Z] [INFO] Processing article: Mavericks GM Harrison defends Dončić trade
+[2025-05-15T18:49:50.768Z] [INFO] Skipping existing article: Texas business execs report more tariff uncertainty
+[2025-05-15T18:49:50.769Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/21/mavericks-nico-harrison-luka-doncic
+[2025-05-15T18:49:50.769Z] [INFO] Skipping existing article: Mavericks GM Harrison defends Dončić trade
+[2025-05-15T18:49:50.769Z] [INFO] Processing article: Dallas-Fort Worth under flood watch Tuesday
+[2025-05-15T18:49:50.769Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/05/dallas-fort-worth-flood-watch
+[2025-05-15T18:49:50.769Z] [INFO] Skipping existing article: Dallas-Fort Worth under flood watch Tuesday
+[2025-05-15T18:49:50.770Z] [INFO] Processing article: Weekend events in Dallas April 24-27
+[2025-05-15T18:49:50.770Z] [INFO] Skipping existing article: Weekend events in Dallas April 24-27
+[2025-05-15T18:49:50.770Z] [INFO] Processing article: Fort Worth offers workforce training for high school students
+[2025-05-15T18:49:50.770Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/29/fort-worth-workforce-training-mattie-parker
+[2025-05-15T18:49:50.770Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/24/dallas-weekend-events
+[2025-05-15T18:49:50.771Z] [INFO] Skipping existing article: Fort Worth offers workforce training for high school students
+[2025-05-15T18:49:50.771Z] [INFO] Processing article: Buying a home requires $63K more income than renting in Dallas-Fort Worth
+[2025-05-15T18:49:50.771Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/07/dallas-fort-worth-home-buying-income
+[2025-05-15T18:49:50.771Z] [INFO] Skipping existing article: Buying a home requires $63K more income than renting in Dallas-Fort Worth
+[2025-05-15T18:49:50.771Z] [INFO] Processing article: Dallas-based film festival is back for 55th year
+[2025-05-15T18:49:50.772Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/24/dallas-usa-film-festival-angelika-film-center
+[2025-05-15T18:49:50.772Z] [INFO] Skipping existing article: Dallas-based film festival is back for 55th year
+[2025-05-15T18:49:50.772Z] [INFO] Processing article: Denton debuts Texas' first electric fire truck
+[2025-05-15T18:49:50.772Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/16/denton-texas-electric-fire-truck
+[2025-05-15T18:49:50.772Z] [INFO] Skipping existing article: Denton debuts Texas' first electric fire truck
+[2025-05-15T18:49:50.772Z] [INFO] Processing article: How to reduce pollution in Dallas-Fort Worth
+[2025-05-15T18:49:50.773Z] [INFO] URL: https://www.axios.com/local/dallas/2025/04/22/dallas-fort-worth-reduce-pollution
+[2025-05-15T18:49:50.773Z] [INFO] Skipping existing article: How to reduce pollution in Dallas-Fort Worth
+[2025-05-15T18:49:50.773Z] [INFO] URL: https://www.axios.com/local/dallas/2025/05/14/dfw-love-field-dallas-airport-art
+[2025-05-15T18:49:50.773Z] [INFO] Skipping existing article: Dallas airports need more art
+[2025-05-15T18:49:50.773Z] [INFO] Processing article: Dallas airports need more art
+[2025-05-15T18:49:50.773Z] [INFO] Processing article: Frisco
+[2025-05-15T18:49:50.774Z] [INFO] URL: https://www.axios.com/local/dallas/2022/01/20/freakonomics-moving-to-dallas
+[2025-05-15T18:49:50.774Z] [INFO] Skipping existing article: Frisco
+[2025-05-15T18:49:50.774Z] [SUCCESS] Processed 0 articles, found 0 relevant articles
+[2025-05-15T18:49:50.789Z] [INFO] Updated scrape history for https://www.axios.com/local/dallas/news
+[2025-05-15T18:49:50.790Z] [SUCCESS] Scrape complete for Axios Dallas
+[2025-05-15T18:49:50.790Z] [STATS] 0 relevant articles after filtering
+[2025-05-15T18:49:50.790Z] [STATS] Found 28 unique articles
+[2025-05-15T18:49:50.790Z] [INFO] Generating report...
+[2025-05-15T18:49:50.823Z] [SUCCESS] Saved results log to ./logs/scrape-results-2025-05-15T18-49-50-791Z.json
+[2025-05-15T18:49:50.823Z] [SUCCESS] Saved summary report to ./logs/scrape-summary-2025-05-15T18-49-50-791Z.txt
+[2025-05-15T18:49:50.823Z] [SECTION] 
+================
+  TEST RESULTS  
+================
+
+[2025-05-15T18:49:50.823Z] [INFO] Success: true
+[2025-05-15T18:49:50.823Z] [INFO] Total articles: 28
+[2025-05-15T18:49:50.823Z] [INFO] New articles: 0
+[2025-05-15T18:49:50.823Z] [SUCCESS] Test completed successfully
