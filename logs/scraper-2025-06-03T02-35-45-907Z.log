@@ -1,0 +1,8 @@
+[2025-06-03T02:35:45.908Z] [SECTION] 
+============================
+  MODEL TRAINING & TESTING  
+============================
+
+[2025-06-03T02:36:01.295Z] [SUCCESS] Model deployed to production successfully!
+[2025-06-03T02:36:01.295Z] [INFO] Model available at: /Users/gurpreetgill/Projects/real-estate-investor-site/data/production/sklearn-rf-2025-06-02-22-32-27.joblib
+[2025-06-03T02:36:01.296Z] [INFO] Created ML relevance checker module: src/scrapers/modules/ml-relevance-checker.mjs

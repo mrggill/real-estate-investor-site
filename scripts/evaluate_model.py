@@ -22,7 +22,7 @@ irrelevant_dir = os.path.join(data_dir, "training", "irrelevant")
 models_dir = os.path.join(data_dir, "models")
 
 # Load the model
-model_path = "/Users/gurpreetgill/Projects/real-estate-investor-site/data/models/sklearn-rf-2025-05-24-15-03-46.joblib"
+model_path = "/Users/gurpreetgill/Projects/real-estate-investor-site/data/models/sklearn-rf-2025-06-02-22-32-27.joblib"
 print(f"Loading model from {model_path}")
 model = joblib.load(model_path)
 

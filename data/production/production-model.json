@@ -5,12 +5,14 @@
   "performance": {
     "accuracy": 0.9,
     "precision": 0.8,
-    "recall": 1.0,
+    "recall": 1,
     "f1": 0.8888888888888888
   },
   "trainingSize": {
     "relevant": 50,
     "irrelevant": 50,
     "total": 100
-  }
+  },
+  "deployedOn": "2025-06-03T02:36:01.289Z",
+  "prodModelPath": "/Users/gurpreetgill/Projects/real-estate-investor-site/data/production/sklearn-rf-2025-06-02-22-32-27.joblib"
 }
