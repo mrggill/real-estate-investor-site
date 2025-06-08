@@ -1,0 +1,16 @@
+{
+  "date": "2025-06-06T02:58:21.698Z",
+  "sites": 1,
+  "success": 1,
+  "failed": 0,
+  "newArticles": 4,
+  "results": [
+    {
+      "site": "Houston News",
+      "success": true,
+      "totalArticles": 5,
+      "newArticles": 4,
+      "error": null
+    }
+  ]
+}

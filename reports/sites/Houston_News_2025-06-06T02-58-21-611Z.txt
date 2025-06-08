@@ -1,0 +1,15 @@
+Scrape Report for Houston News - 2025-06-05, 10:58:21 p.m.
+Total Articles: 5
+Selected Articles: 4
+Ignored Articles: 1
+
+SELECTED ARTICLES:
+- Apple’s Investment Cements Houston as a Leading Manufacturing and Tech Hub (2025-06-06) - https://www.houston.org/news/apples-major-investment-cements-houston-leading-us-manufacturing-and-tech-hub
+- Why Greater Houston is a Prime Location for Battery Energy Storage Projects (2025-06-06) - https://www.houston.org/news/why-greater-houston-region-prime-location-battery-energy-storage-projects
+- READ MORE (2025-06-06) - https://www.houston.org/news/guide-public-education-policy-ahead-texas-2025-legislative-session
+- Projects to Look Forward to in 2025 (2025-06-06) - https://www.houston.org/news/rising-houston-projects-look-forward-2025-and-beyond
+
+IGNORED ARTICLES:
+- READ MORE (2025-06-06) - https://www.houston.org/news/rising-houston-projects-look-forward-2024-and-beyond
+
+To correct these selections, edit: ./feedback/article_feedback.json

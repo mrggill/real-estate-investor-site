@@ -32,6 +32,44 @@
         "scrollBehavior": "infinite",
         "waitForSelector": "main"
       }
+    },
+    {
+      "name": "Test Site",
+      "url": "https://example.com",
+      "enabled": true,
+      "scrapeOptions": {
+        "selectors": {
+          "articleLinks": [
+            "a[href]"
+          ],
+          "content": [
+            "main",
+            "body"
+          ]
+        },
+        "loadMoreAttempts": 50,
+        "scrollBehavior": "infinite",
+        "waitForSelector": "body"
+      }
+    },
+    {
+      "name": "Houston News",
+      "url": "https://www.houston.org/press-releases",
+      "enabled": true,
+      "scrapeOptions": {
+        "selectors": {
+          "articleLinks": [
+            "a[href*=\"/news/\"]"
+          ],
+          "content": [
+            "main",
+            "body"
+          ]
+        },
+        "loadMoreAttempts": 50,
+        "scrollBehavior": "infinite",
+        "waitForSelector": "body"
+      }
     }
   ]
 }

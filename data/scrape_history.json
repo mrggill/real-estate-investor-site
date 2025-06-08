@@ -6,6 +6,13 @@
       "articleCount": 0,
       "successCount": 8,
       "failureCount": 1
+    },
+    "https://www.houston.org/press-releases": {
+      "lastScrape": "2025-06-06T02:58:21.697Z",
+      "lastStatus": "success",
+      "articleCount": 4,
+      "successCount": 1,
+      "failureCount": 0
     }
   },
   "lastFullScrape": null

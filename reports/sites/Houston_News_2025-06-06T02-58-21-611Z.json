@@ -1,0 +1,39 @@
+{
+  "siteName": "Houston News",
+  "date": "2025-06-06T02:58:21.611Z",
+  "totalArticles": 5,
+  "selectedArticles": [
+    {
+      "url": "https://www.houston.org/news/apples-major-investment-cements-houston-leading-us-manufacturing-and-tech-hub",
+      "title": "Apple’s Investment Cements Houston as a Leading Manufacturing and Tech Hub",
+      "date": "2025-06-06",
+      "relevanceReason": "Not specified"
+    },
+    {
+      "url": "https://www.houston.org/news/why-greater-houston-region-prime-location-battery-energy-storage-projects",
+      "title": "Why Greater Houston is a Prime Location for Battery Energy Storage Projects",
+      "date": "2025-06-06",
+      "relevanceReason": "Not specified"
+    },
+    {
+      "url": "https://www.houston.org/news/guide-public-education-policy-ahead-texas-2025-legislative-session",
+      "title": "READ MORE",
+      "date": "2025-06-06",
+      "relevanceReason": "Not specified"
+    },
+    {
+      "url": "https://www.houston.org/news/rising-houston-projects-look-forward-2025-and-beyond",
+      "title": "Projects to Look Forward to in 2025",
+      "date": "2025-06-06",
+      "relevanceReason": "Not specified"
+    }
+  ],
+  "ignoredArticles": [
+    {
+      "url": "https://www.houston.org/news/rising-houston-projects-look-forward-2024-and-beyond",
+      "title": "READ MORE",
+      "date": "2025-06-06",
+      "irrelevanceReason": "Not specified"
+    }
+  ]
+}
