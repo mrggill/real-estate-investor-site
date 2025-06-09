@@ -2023,31 +2023,46 @@ const scrapeSingleSite = async (site, lastScrapeDate) => {
         await sleep(2000);
 
         // Extract the content
-        const content = await page.evaluate(() => {
-          // Try different content selectors
-          const selectors = [
-            'article', '.article', '.post-content', '.article-content',
-            'main', '.content', '.story', '[itemprop="articleBody"]',
-            '.story-body', '#content', '.entry-content'
-          ];
+const content = await page.evaluate(() => {
+  // Remove cookie banners first
+  const cookieBanners = document.querySelectorAll(
+    '[class*="cookie"], [id*="cookie"], [class*="consent"], [id*="consent"], ' +
+    '[class*="privacy"], [class*="gdpr"], .cookie-banner, #cookie-banner, ' +
+    '.cookie-notice, .privacy-notice, .gdpr-notice'
+  );
+  cookieBanners.forEach(banner => banner.remove());
 
-          let content = '';
+  // Try different content selectors
+  const selectors = [
+    'article', '.article', '.post-content', '.article-content',
+    'main', '.content', '.story', '[itemprop="articleBody"]',
+    '.story-body', '#content', '.entry-content'
+  ];
 
-          for (const selector of selectors) {
-            const element = document.querySelector(selector);
-            if (element) {
-              content = element.innerText || element.textContent || '';
-              break;
-            }
-          }
+  let content = '';
 
-          // If no content found with selectors, get body text as fallback
-          if (!content) {
-            content = document.body.innerText || document.body.textContent || '';
-          }
+  for (const selector of selectors) {
+    const element = document.querySelector(selector);
+    if (element) {
+      content = element.innerText || element.textContent || '';
+      break;
+    }
+  }
 
-          return content.trim();
-        });
+  // If no content found with selectors, get body text as fallback
+  if (!content) {
+    content = document.body.innerText || document.body.textContent || '';
+  }
+
+  // Clean up cookie/privacy notices from content
+  content = content.replace(/THIS WEBSITE USES COOKIES.*?Skip to main content/gs, '');
+  content = content.replace(/We use cookies.*?OK/gs, '');
+  content = content.replace(/Cookie Policy.*?Accept/gs, '');
+  content = content.replace(/Privacy Policy.*?Accept/gs, '');
+  content = content.replace(/personalize content and ads.*?analyze our web traffic/gs, '');
+  
+  return content.trim();
+});
 
         // Extract additional metadata
         const metadata = await page.evaluate(() => {
